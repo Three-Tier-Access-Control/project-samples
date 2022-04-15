@@ -10,5 +10,5 @@ my_long_string = str_pad + my_long_string
 for i in range(0, len(my_long_string)):
     lcd_text = my_long_string[i:(i+16)]
     mylcd.lcd_display_string(lcd_text, 1)
-    sleep(0.4)
+    sleep(0.1)
     mylcd.lcd_display_string(str_pad, 1)
