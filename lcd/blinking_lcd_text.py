@@ -1,5 +1,5 @@
 import time
-import lcd.I2C_LCD_driver as I2C_LCD_driver
+import I2C_LCD_driver as I2C_LCD_driver
 mylcd = I2C_LCD_driver.lcd()
 
 while True:
