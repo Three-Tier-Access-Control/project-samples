@@ -1,5 +1,5 @@
 
-# import the opencv and  library
+# import the opencv and face_recognition library
 import cv2
 import face_recognition
   
