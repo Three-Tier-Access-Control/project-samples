@@ -10,7 +10,7 @@ while(True):
     # Capture the video frame by frame
     ret, frame = vid.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    face_locations = face_recognition.face_locations(frame)
+    face_locations = face_recognition.face_locations(gray)
 
     print(face_locations)
 
