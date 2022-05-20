@@ -81,7 +81,10 @@ while True:
                 known_face_encodings, face_encoding)
             print(face_distances)
             best_match_index = np.argmin(face_distances)
-            if matches[best_match_index]:
+            print(best_match_index)
+
+            # use a tolarance level of 0.5 when considering best match 
+            if face_distances[best_match_index] < 0.5 and matches[best_match_index]:
                 name = known_face_names[best_match_index]
 
             face_names.append(name)
