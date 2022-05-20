@@ -79,9 +79,7 @@ while True:
             # Or instead, use the known face with the smallest distance to the new face
             face_distances = face_recognition.face_distance(
                 known_face_encodings, face_encoding)
-            print(face_distances)
             best_match_index = np.argmin(face_distances)
-            print(best_match_index)
 
             # use a tolarance level of 0.5 when considering best match 
             if face_distances[best_match_index] < 0.5 and matches[best_match_index]:
