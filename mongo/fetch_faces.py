@@ -25,7 +25,7 @@ embeddings = np.array(embeddings)
 
 
 pprint(names)
-pprint(embeddings)
+# pprint(embeddings)
 pprint(count)
 
 print("Fething Complete....")
