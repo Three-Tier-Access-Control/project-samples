@@ -56,6 +56,7 @@ print("Inserting Complete....")
 # count documents
 # count = faces.count_documents({})
 
+
 all_docs = list(faces.find({}))
 names, embeddings = [doc["name"]
                      for doc in all_docs], [doc["embedding"] for doc in all_docs]
@@ -66,3 +67,5 @@ embeddings = np.array(embeddings)
 target_embedding = np.random.rand(128)
 pprint(names)
 pprint(embeddings)
+
+print("Fething Complete....")
