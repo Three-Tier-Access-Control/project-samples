@@ -5,7 +5,8 @@ import face_recognition
 
 # client = MongoClient('localhost', 27017)
 
-client = MongoClient("mongodb+srv://ashleytshumba:02june1997@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient(
+    "mongodb+srv://ashleytshumba:02june1997@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
 
 db = client['face_db']
 
@@ -43,17 +44,29 @@ print("Encoding Complete....")
 
 print("Inserting....")
 
-# faces.insert_one([
+faces.insert_one(
+    {
+        "first_name": "Ashley",
+        "last_name": "Shumba",
+        "email_address": "ashleytshumba@gmail.com",
+        "role": "Developer",
+        "national_id": "58-303326E67",
+        "city": "Bulawayo",
+        "is_active": True,
+        "id": "99201631-f60f-42fc-8e1c-8c5f72c3ec22",
+        "profile_image": "",
+        "phone_number": "0787382522",
+        "street_address": "14654 Inungu Rd, Selborne Park",
+        "embedding": first_sample_face_embedding
+    },
+)
+
+
+# faces.insert_many([
 #     {"name": first_person_name, "embedding": first_sample_face_embedding},
+#     {"name": second_person_name, "embedding": second_sample_face_embedding},
+#     {"name": third_person_name, "embedding": third_sample_face_embedding}
 # ])
 
 
-faces.insert_many([
-    {"name": first_person_name, "embedding": first_sample_face_embedding},
-    {"name": second_person_name, "embedding": second_sample_face_embedding},
-    {"name": third_person_name, "embedding": third_sample_face_embedding}
-])
-
-
 print("Inserting Complete....")
-
