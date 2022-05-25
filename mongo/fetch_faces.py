@@ -24,13 +24,13 @@ count = faces.count_documents({})
 print("Fething....")
 
 all_docs = list(faces.find({}))
-first_name, embeddings = [doc["first_name"]
+names, embeddings = [doc["first_name"]
                      for doc in all_docs], [doc["embedding"] for doc in all_docs]
 
 embeddings = np.array(embeddings)
 
 
-pprint(first_name)
+pprint(names)
 # pprint(embeddings)
 pprint(count)
 
