@@ -14,7 +14,9 @@ db = client['face_db']
 faces = db["face"]
 
 # delete all records
+# print("Deleting All....")
 # faces.delete_many({})
+# print("Deleted.")
 
 # count documents
 count = faces.count_documents({})
