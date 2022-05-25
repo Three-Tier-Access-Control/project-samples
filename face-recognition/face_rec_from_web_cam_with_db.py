@@ -22,7 +22,7 @@ faces = db["face"]
 # specific demo. If you have trouble installing it, try any of the other demos that don't require it instead.
 
 # Get a reference to webcam #0 (the default one)
-video_capture = cv2.VideoCapture(2)
+video_capture = cv2.VideoCapture(4)
 
 # Create arrays of known face encodings and their names
 all_docs = list(faces.find({}))
