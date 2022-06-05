@@ -3,9 +3,9 @@ import cv2
 import numpy as np
 from pymongo import MongoClient
 
-# client = MongoClient('localhost', 27017)
+client = MongoClient('localhost', 27017)
 
-client = MongoClient("mongodb+srv://ashleytshumba:02june1997@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
+# client = MongoClient("mongodb+srv://ashleytshumba:02june1997@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
 
 db = client['face_db']
 
@@ -22,7 +22,7 @@ faces = db["face"]
 # specific demo. If you have trouble installing it, try any of the other demos that don't require it instead.
 
 # Get a reference to webcam #0 (the default one)
-video_capture = cv2.VideoCapture(4)
+video_capture = cv2.VideoCapture(2)
 
 # Create arrays of known face encodings and their names
 all_docs = list(faces.find({}))
