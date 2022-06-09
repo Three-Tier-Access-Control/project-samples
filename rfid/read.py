@@ -8,6 +8,6 @@ reader = SimpleMFRC522()
 try:
         id, text = reader.read()
         print(id)
-        print(text)
+        print(text.strip())
 finally:
         GPIO.cleanup()
