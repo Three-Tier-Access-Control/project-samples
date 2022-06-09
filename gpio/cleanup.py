@@ -1,4 +1,7 @@
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
-GPIO.cleanup()
-print("Cleaned...")
+
+try:
+    print("Cleaning...")
+finally:
+        GPIO.cleanup()
