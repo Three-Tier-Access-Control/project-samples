@@ -3,9 +3,9 @@ import cv2
 import numpy as np
 from pymongo import MongoClient
 
-client = MongoClient('localhost', 27017)
+# client = MongoClient('localhost', 27017)
 
-# client = MongoClient("mongodb+srv://ashleytshumba:02june1997@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://ashleytshumba:02june1997@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
 
 db = client['face_db']
 
