@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from pymongo import MongoClient
 
-client = MongoClient('localhost', 27017)
+# client = MongoClient('localhost', 27017)
 
 client = MongoClient("mongodb+srv://threetiersystem:Xinyxo1DIUotsoEp@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
 
