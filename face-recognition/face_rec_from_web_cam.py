@@ -16,16 +16,16 @@ video_capture = cv2.VideoCapture(4)
 
 # Load a sample picture and learn how to recognize it.
 ashley_image = face_recognition.load_image_file(
-    "/home/ashley/projects/project-samples/face-recognition/known_faces/Ashley_Shumba_0003.png")
+    "/home/ashley/project/project-samples/face-recognition/known_faces/Ashley_Shumba_0003.png")
 ashley_face_encoding = face_recognition.face_encodings(ashley_image)[0]
 
 # Load a second sample picture and learn how to recognize it.
-sam_image = face_recognition.load_image_file("/home/ashley/projects/project-samples/face-recognition/known_faces/Sam Phiri.jpg")
+sam_image = face_recognition.load_image_file("/home/ashley/project/project-samples/face-recognition/known_faces/Sam Phiri.jpg")
 sam_face_encoding = face_recognition.face_encodings(sam_image)[0]
 
 # Load a third sample picture and learn how to recognize it.
 volition_image = face_recognition.load_image_file(
-    "/home/ashley/projects/project-samples/face-recognition/known_faces/Volition Mashamba.jpg")
+    "/home/ashley/project/project-samples/face-recognition/known_faces/Volition Mashamba.jpg")
 volition_face_encoding = face_recognition.face_encodings(volition_image)[0]
 
 
