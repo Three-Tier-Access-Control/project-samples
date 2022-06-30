@@ -5,7 +5,7 @@ cam = cv2.VideoCapture(2)
 
 while True:
 	ret, image = cam.read()
-	cv2.imshow('Image Test',image)
+	cv2.imshow('Three Tier System',image)
 	# k = cv2.waitKey(1)
 	# if k != -1:
 	# 	break
