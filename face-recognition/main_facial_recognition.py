@@ -131,15 +131,21 @@ def recognise_face():
 
 def open_door(pin_number: int, employee_id: str):
     try:
-        door_open = requests.post(
+        requests.post(
             f'{BASE_URL_HARDWARE}/turn-on', json={'number': pin_number})
-        door_access_log = requests.post(
-            f'{BASE_URL_MAIN}/access/', json={'employee': employee_id, "direction": "in", "status": True})
         print("Door open!!!")
+        requests.post(
+            f'{BASE_URL_HARDWARE}/write-to-lcd', json={'text': "Door open..."})
         time.sleep(5)
-        door_off = requests.post(
+        requests.post(
             f'{BASE_URL_HARDWARE}/turn-off', json={'number': pin_number})
         print("Door closed.")
+        requests.post(
+            f'{BASE_URL_HARDWARE}/write-to-lcd', json={'text': "Door closed..."})
+        requests.post(
+            f'{BASE_URL_MAIN}/access/', json={'employee': employee_id, "direction": "in", "status": True})
+        requests.post(
+            f'{BASE_URL_HARDWARE}/write-to-lcd', json={'text': ""})
     except HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')
     except Timeout:
@@ -154,7 +160,6 @@ def main():
     employee_id = recognise_face()
     print(recognise_face())
     open_door(36, employee_id)
-    requests.post(
-            f'{BASE_URL_HARDWARE}/write-to-lcd', json={'text': ""})
+
 if __name__ == "__main__":
     main()
