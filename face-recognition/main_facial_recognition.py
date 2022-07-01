@@ -151,7 +151,7 @@ def open_door(pin_number: int, employee_id: str):
 def main():
     employee_id = recognise_face()
     print(recognise_face())
-    open_door(26, employee_id)
+    open_door(36, employee_id)
 
 
 if __name__ == "__main__":
