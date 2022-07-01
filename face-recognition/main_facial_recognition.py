@@ -91,6 +91,8 @@ def recognise_face():
                     name = known_face_names[best_match_index]
                     id = known_face_ids[best_match_index]
 
+                    video_capture.release()
+                    cv2.destroyAllWindows()
                     return id
 
                 face_names.append(name)
@@ -99,22 +101,22 @@ def recognise_face():
         process_this_frame = not process_this_frame
 
         # Display the results
-        for (top, right, bottom, left), name in zip(face_locations, face_names):
-            # Scale back up face locations since the frame we detected in was scaled to 1/4 size
-            top *= 4
-            right *= 4
-            bottom *= 4
-            left *= 4
+        # for (top, right, bottom, left), name in zip(face_locations, face_names):
+        #     # Scale back up face locations since the frame we detected in was scaled to 1/4 size
+        #     top *= 4
+        #     right *= 4
+        #     bottom *= 4
+        #     left *= 4
 
-            # Draw a box around the face
-            cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+        #     # Draw a box around the face
+        #     cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
-            # Draw a label with a name below the face
-            cv2.rectangle(frame, (left, bottom - 35),
-                        (right, bottom), (0, 0, 255), cv2.FILLED)
-            font = cv2.FONT_HERSHEY_DUPLEX
-            cv2.putText(frame, name, (left + 6, bottom - 6),
-                        font, 1.0, (255, 255, 255), 1)
+        #     # Draw a label with a name below the face
+        #     cv2.rectangle(frame, (left, bottom - 35),
+        #                 (right, bottom), (0, 0, 255), cv2.FILLED)
+        #     font = cv2.FONT_HERSHEY_DUPLEX
+        #     cv2.putText(frame, name, (left + 6, bottom - 6),
+        #                 font, 1.0, (255, 255, 255), 1)
 
         # Display the resulting image
         cv2.imshow('Video', frame)
