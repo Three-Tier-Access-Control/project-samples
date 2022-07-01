@@ -2,10 +2,12 @@ import face_recognition
 import cv2
 import numpy as np
 from pymongo import MongoClient
-
+from requests.exceptions import HTTPError, Timeout
+import requests
+import time
 # client = MongoClient('localhost', 27017)
 
-client = MongoClient("mongodb+srv://ashleytshumba:02june1997@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://threetiersystem:Xinyxo1DIUotsoEp@cluster0.ie2a2.mongodb.net/?retryWrites=true&w=majority")
 
 db = client['face_db']
 
@@ -20,6 +22,10 @@ faces = db["face"]
 # PLEASE NOTE: This example requires OpenCV (the `cv2` library) to be installed only to read from your webcam.
 # OpenCV is *not* required to use the face_recognition library. It's only required if you want to run this
 # specific demo. If you have trouble installing it, try any of the other demos that don't require it instead.
+
+BASE_URL_HARDWARE="http://threetiersystem.local:5000/api/v1"
+BASE_URL_MAIN="http://threetiersystem.local:8000/api"
+
 
 
 def recognise_face():
@@ -123,8 +129,29 @@ def recognise_face():
 
 
 
+def open_door(pin_number: int, employee_id: str):
+    try:
+        door_open = requests.post(
+            f'{BASE_URL_HARDWARE}/turn-on', json={'number': pin_number})
+        door_access_log = requests.post(
+            f'{BASE_URL_MAIN}/access/', json={'employee': employee_id, "direction": "in", "status": True})
+        print("Door open!!!")
+        time.sleep(5)
+        door_off = requests.post(
+            f'{BASE_URL_HARDWARE}/turn-off', json={'number': pin_number})
+        print("Door closed.")
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}')
+    except Timeout:
+        print('The request timed out')
+    except Exception as err:
+        print(f'Other error occurred: {err}')
+
+
 def main():
+    employee_id = recognise_face()
     print(recognise_face())
+    open_door(26, employee_id)
 
 
 if __name__ == "__main__":
