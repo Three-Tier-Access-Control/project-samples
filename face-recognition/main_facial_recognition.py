@@ -149,10 +149,12 @@ def open_door(pin_number: int, employee_id: str):
 
 
 def main():
+    requests.post(
+            f'{BASE_URL_HARDWARE}/write-to-lcd', json={'text': "Show face"})
     employee_id = recognise_face()
     print(recognise_face())
     open_door(36, employee_id)
-
-
+    requests.post(
+            f'{BASE_URL_HARDWARE}/write-to-lcd', json={'text': ""})
 if __name__ == "__main__":
     main()
