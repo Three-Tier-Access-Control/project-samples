@@ -216,6 +216,7 @@ def main():
         employee_response = requests.get(
             f'{BASE_URL_MAIN}/fingerprint/?fingerprint_id={finger.finger_id}')
         json_employee_response = employee_response.json()
+        print(json_employee_response)
         results = json_employee_response['results']
         if results:
             current_employee = results[0]["employee"]
