@@ -227,7 +227,7 @@ def main():
             open_door(36, employee_id)
         else:
             print(
-                f"No employee found with the given fingerprint id: {finger}")
+                f"No employee found with the given fingerprint id: {finger.finger_id}")
     else:
         print("Finger not found")
 
