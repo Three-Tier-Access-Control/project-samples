@@ -3,7 +3,7 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(17, GPIO.OUT)
+GPIO.setup(16, GPIO.OUT)
 
 
 try:
